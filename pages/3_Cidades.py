@@ -6,7 +6,6 @@ from datetime import datetime
 from haversine import haversine
 from PIL import Image
 from streamlit_folium import folium_static
-from textwrap import wrap
 from textwrap3 import wrap
 import folium
 import io

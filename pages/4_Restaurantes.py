@@ -6,7 +6,6 @@ from datetime import datetime
 from haversine import haversine
 from PIL import Image
 from streamlit_folium import folium_static
-from textwrap import wrap
 from textwrap3 import wrap
 import folium
 import io
@@ -322,21 +321,27 @@ with st.container():
         #st.dataframe(Rest_OnLine, width=854, height=178, use_container_width=False)
         fig = Reserve_On(df1)
         st.plotly_chart(fig)
-              
+
+        st.markdown( """---""" )
 with st.container():
-        col1, col2 = st.columns(2, gap='medium')
-            
-        with col1:
-            st.markdown('###### AMERICANOS  DE CULINÁRIA JAPONESA')
-            UsaJapanese_Average =  UsaJapanese_Average(df1)
-            col1.metric('Valor médio de um prato para dois', UsaJapanese_Average, 'dolares')
-            
-        with col2: 
-            st.markdown('###### CHURRASCARIAS AMERICANAS COM VALOR MÉDIO DE PRATO PARA DOIS MENOR QUE OS AMERICANOS DE CULINÁRIA JAPONESA')    
-            #Usa_Mean_AverageNunique = Usa_Mean_AverageNunique(df1) 
-            #st.dataframe(Usa_Mean_AverageNunique, width=474, height=388, use_container_width=False)
-            fig = Usa_Mean_AverageNunique(df1)
-            st.plotly_chart(fig)
+    col1, col2 = st.columns(2, gap='small') 
+    
+    with col1:
+        st.markdown('###### AMERICANOS  DE CULINÁRIA JAPONESA')
+        UsaJapanese_Average =  UsaJapanese_Average(df1)
+        col1.metric('Valor médio de um prato para dois', UsaJapanese_Average, 'dolares')
+        
+    with col2:
+         st.markdown('######   ')
+
+    
+    st.markdown( """---""" )
+with st.container(): 
+        st.markdown('###### CHURRASCARIAS AMERICANAS COM VALOR MÉDIO DE PRATO PARA DOIS MENOR QUE OS AMERICANOS DE CULINÁRIA JAPONESA')    
+        #Usa_Mean_AverageNunique = Usa_Mean_AverageNunique(df1) 
+        #st.dataframe(Usa_Mean_AverageNunique, width=474, height=388, use_container_width=False)
+        fig = Usa_Mean_AverageNunique(df1)
+        st.plotly_chart(fig)
             
             
 
